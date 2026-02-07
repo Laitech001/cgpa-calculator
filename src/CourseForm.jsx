@@ -1,8 +1,11 @@
+import './CourseForm.css';
+import './index.css'
+
 const CourseForm = ({ course, onChange, onRemove}) => {
 
   return ( 
-    <div className="course-card">
-
+    <div className="course">
+    
       <input 
         type="text" 
         placeholder="Course Name" 
@@ -37,7 +40,7 @@ const CourseForm = ({ course, onChange, onRemove}) => {
         <option value="F">F</option>
       </select>
 
-      <button onClick={ onRemove }> Remove </button>
+      <button className="removeBtn" onClick={ onRemove }> Remove </button>
       
     </div>
   );

@@ -1,4 +1,5 @@
 import CourseForm from "./CourseForm";
+import './Gpa-calculator.css';
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -58,10 +59,17 @@ const GpaCalculator = () => {
     return (totalScore / totalUnits).toFixed(2);
   };
 
-    
+  useEffect(() => {
+    if (courses.length > 0) {
+      const gpa = calculateGPA(); // your function
+      setGpaResult(gpa);
+    }
+  }, []); // run once when component mounts
+
+
   return (
     <div className="GpaCalculator">
-      <h1>GPA Calculator</h1>
+      <h2>GPA Calculator</h2>
 
       {courses.length === 0 && (
         <p>No courses added yet. Click "Add Course" to start.</p>
@@ -78,10 +86,20 @@ const GpaCalculator = () => {
         />
       ))}
 
+      {gpaResult !== null && (
+        <div className="result">
+          <h2>Your GPA: {gpaResult}</h2>
+        </div>
+      )}
+
       <div className="actions">
         <button onClick={addCourse}>Add Course</button>
-        <button onClick={setGpaResult(calculateGPA())}>Calculate GPA</button>
+
+        <button onClick={() => setGpaResult(calculateGPA())}>Calculate GPA</button>
+
+        <button onClick={() => setGpaResult(null)}>Clear result</button>
       </div>
+
     </div>
   );
 }

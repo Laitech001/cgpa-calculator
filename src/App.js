@@ -14,6 +14,10 @@ function App() {
       <GpaCalculator />
 
       <CgpaCalculator />
+
+      <footer>
+        <p>The website was created by Laitech team. for more enqueries, message us on <a href='#'>+2347062639160</a></p>
+      </footer>
     </div>
   );  
 }

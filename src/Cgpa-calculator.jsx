@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import './cgpa-calculator.css'
 
 const CgpaCalculator = () => {
 
@@ -56,8 +57,11 @@ const CgpaCalculator = () => {
   }
   return ( 
     <div className="CgpaCalculator">
-      <h1>CGPA Calculator</h1>
-      <p>Input your GPA for both semester to see your result automatically</p>
+      <header>
+        <h2>CGPA Calculator</h2>
+
+        <p>Input your GPA for both semester to see your result automatically</p>
+      </header>
 
       <div className="cgpainput">
         <input
@@ -77,15 +81,17 @@ const CgpaCalculator = () => {
             handleChange("secondSemester", e.target.value)
           }
         />
-
-        {cgpaData.result && (
-          <p>Your CGPA is: {cgpaData.result}</p>
-        )}
       </div>
 
-      <button onClick={clearCgpaResult}>
-        Clear Data
-      </button>
+      {cgpaData.result && (
+          <p>Your CGPA is: {cgpaData.result}</p>
+        )}
+      <div className="clearBtn">
+        <button onClick={clearCgpaResult}>
+          Clear Data
+        </button>
+      </div>
+      
     </div>
    );
 }
